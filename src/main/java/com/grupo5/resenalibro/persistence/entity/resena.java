@@ -23,7 +23,7 @@ public class resena {
     private Long id;
     private String externalBookId;
     private Long usuarioId;
-    private String;
+    private String contenido;
     private LocalDateTime fecha = LocalDateTime.now();
 
 }
