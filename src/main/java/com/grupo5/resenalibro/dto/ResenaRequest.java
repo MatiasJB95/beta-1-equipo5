@@ -1,10 +1,8 @@
 package com.grupo5.resenalibro.dto;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
 
-public class ReseñaRequest {
+public class ResenaRequest {
     public String externalBookId;
     public Long usuarioId;
     public String contenido;
