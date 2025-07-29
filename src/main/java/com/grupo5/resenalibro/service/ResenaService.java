@@ -14,11 +14,12 @@ public class ResenaService {
     @Autowired
     private resenaRepository resenaRepo;
 
-    public Resena crearReseña(ResenaRequest request) {
+    public Resena crearResena(ResenaRequest request) {
         Resena resena = new Resena();
         resena.setExternalBookId(request.externalBookId);
         resena.setUsuarioId(request.usuarioId);
         resena.setContenido(request.contenido);
+        resena.setPuntuacion(request.puntuacion);
         resena.setFecha(LocalDateTime.now());
 
         return resenaRepo.save(resena);
