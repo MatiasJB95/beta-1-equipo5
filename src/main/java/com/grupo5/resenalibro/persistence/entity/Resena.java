@@ -19,7 +19,7 @@ public class Resena {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String externalBookId;
+    private String externalId;
     private Long usuarioId;
     private String contenido;
     private LocalDateTime fecha = LocalDateTime.now();
@@ -37,12 +37,12 @@ public class Resena {
         this.id = id;
     }
 
-    public String getExternalBookId() {
-        return externalBookId;
+    public String getexternalId() {
+        return externalId;
     }
 
-    public void setExternalBookId(String externalBookId) {
-        this.externalBookId = externalBookId;
+    public void setexternalId(String externalBookId) {
+        this.externalId = externalBookId;
     }
 
     public Long getUsuarioId() {
