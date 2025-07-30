@@ -3,6 +3,7 @@ package com.grupo5.resenalibro.persistence.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,18 @@ public class Resena {
     @Max(5)
     private Integer puntuacion;
 
+    @Column(nullable = false, length = 1)
+    @Pattern(regexp = "[BM]", message = "El tipo debe ser B (Book) o M (Movie)")
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     public Long getId() {
         return id;
     }
@@ -37,11 +50,11 @@ public class Resena {
         this.id = id;
     }
 
-    public String getexternalId() {
+    public String getExternalId() {
         return externalId;
     }
 
-    public void setexternalId(String externalBookId) {
+    public void setExternalId(String externalBookId) {
         this.externalId = externalBookId;
     }
 
