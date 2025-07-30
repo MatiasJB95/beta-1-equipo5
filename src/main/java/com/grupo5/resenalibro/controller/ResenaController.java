@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-    @RequestMapping("/api/resenas")
+    @RequestMapping("/api/r")
     public class ResenaController {
 
         @Autowired
@@ -30,7 +30,7 @@ import java.util.Optional;
 
         }
 
-        @GetMapping("/usuario/{usuarioId}")
+        @GetMapping("/u/{usuarioId}")
         public List<ResenaResponse> getByUsuario(@PathVariable Long usuarioId) {
             return resenaService.getByUsuario(usuarioId)
                     .stream()
@@ -38,10 +38,19 @@ import java.util.Optional;
                     .toList();
         }
 
-        @GetMapping("/libro/{externalBookId}")
-        public List<Resena> getByLibro(@PathVariable String externalBookId) {
-            return resenaService.getByLibro(externalBookId);
+    @GetMapping("/u/{usuarioId}/t/{tipo}")
+    public ResponseEntity<List<Resena>> getResenasPorTipo(
+            @PathVariable Long usuarioId,
+            @PathVariable String tipo) {
+
+        if (!tipo.equals("B") && !tipo.equals("M")) {
+            return ResponseEntity.badRequest().build();
         }
+
+        List<Resena> resenas = resenaService.findByUsuarioIdAndTipo(usuarioId, tipo);
+        return ResponseEntity.ok(resenas);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Resena> actualizarResena(
             @PathVariable Long id,
