@@ -17,7 +17,7 @@ public class ResenaService {
 
     public Resena crearResena(ResenaRequest request) {
         Resena resena = new Resena();
-        resena.setexternalId(request.externalId);
+        resena.setExternalId(request.externalId);
         resena.setUsuarioId(request.usuarioId);
         resena.setContenido(request.contenido);
         resena.setPuntuacion(request.puntuacion);
@@ -46,5 +46,9 @@ public class ResenaService {
 
     public void deleteById(Long id) {
         resenaRepo.deleteById(id);
+    }
+
+    public List<Resena> findByUsuarioIdAndTipo(Long usuarioId, String tipo) {
+        return resenaRepo.findByUsuarioIdAndTipo(usuarioId, tipo);
     }
 }
