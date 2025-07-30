@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ResenaService {
@@ -31,5 +32,19 @@ public class ResenaService {
 
     public List<Resena> getByLibro(String externalBookId) {
         return resenaRepo.findByExternalBookId(externalBookId);
+    }
+    public Optional<Resena> findById(Long id) {
+        return resenaRepo.findById(id);
+    }
+    public Resena save(Resena resena) {
+        return resenaRepo.save(resena);
+    }
+
+    public boolean existsById(Long id) {
+        return resenaRepo.existsById(id);
+    }
+
+    public void deleteById(Long id) {
+        resenaRepo.deleteById(id);
     }
 }
