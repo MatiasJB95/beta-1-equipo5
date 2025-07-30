@@ -12,7 +12,7 @@ public class ResenaResponse {
     public LocalDateTime fecha;
 
     public ResenaResponse(Resena r) {
-        this.externalBookId = r.getExternalBookId();
+        this.externalBookId = r.getexternalId();
         this.usuarioId = r.getUsuarioId();
         this.contenido = r.getContenido();
         this.puntuacion = r.getPuntuacion();
