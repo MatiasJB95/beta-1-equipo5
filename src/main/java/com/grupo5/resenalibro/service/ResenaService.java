@@ -17,7 +17,7 @@ public class ResenaService {
 
     public Resena crearResena(ResenaRequest request) {
         Resena resena = new Resena();
-        resena.setExternalBookId(request.externalBookId);
+        resena.setexternalId(request.externalId);
         resena.setUsuarioId(request.usuarioId);
         resena.setContenido(request.contenido);
         resena.setPuntuacion(request.puntuacion);
