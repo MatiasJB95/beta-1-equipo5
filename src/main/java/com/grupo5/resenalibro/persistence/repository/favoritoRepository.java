@@ -2,10 +2,11 @@ package com.grupo5.resenalibro.persistence.repository;
 
 import com.grupo5.resenalibro.persistence.entity.Favorito;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-
+@Repository
 public interface favoritoRepository extends JpaRepository<Favorito, Long> {
     List<Favorito> findByUsuarioIdAndTipo(Long usuarioId, String tipo);
     Optional<Favorito> findByUsuarioIdAndExternalIdAndTipo(Long usuarioId, String externalId, String tipo);
