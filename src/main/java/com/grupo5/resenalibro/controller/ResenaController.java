@@ -78,4 +78,15 @@ import java.util.Optional;
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/e/{externalId}")
+    public ResponseEntity<List<ResenaResponse>> getByExternalId(@PathVariable String externalId) {
+        List<Resena> resenas = resenaService.findByExternalBookId(externalId);
+        if (resenas.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        List<ResenaResponse> response = resenas.stream()
+                .map(ResenaResponse::new)
+                .toList();
+        return ResponseEntity.ok(response);
+    }
 }
