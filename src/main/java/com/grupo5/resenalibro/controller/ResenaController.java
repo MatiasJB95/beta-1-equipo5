@@ -2,6 +2,7 @@ package com.grupo5.resenalibro.controller;
 
 import com.grupo5.resenalibro.dto.ResenaRequest;
 import com.grupo5.resenalibro.dto.ResenaResponse;
+import com.grupo5.resenalibro.dto.ResenaStatsDTO;
 import com.grupo5.resenalibro.dto.ResenaUpdateDTO;
 import com.grupo5.resenalibro.persistence.entity.Resena;
 import com.grupo5.resenalibro.service.ResenaService;
@@ -88,5 +89,9 @@ import java.util.Optional;
                 .map(ResenaResponse::new)
                 .toList();
         return ResponseEntity.ok(response);
+    }
+    @GetMapping("/u/{usuarioId}/est")
+    public ResponseEntity<ResenaStatsDTO> estadisticasUsuario(@PathVariable Long usuarioId) {
+        return ResponseEntity.ok(resenaService.obtenerEstadisticas(usuarioId));
     }
 }
