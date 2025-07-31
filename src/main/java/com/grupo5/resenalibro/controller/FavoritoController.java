@@ -18,6 +18,10 @@ public class FavoritoController {
 
     @PostMapping
     public ResponseEntity<Favorito> agregar(@RequestBody Favorito favorito) {
+        if (favorito.getTitle() == null || favorito.getTitle().isBlank()) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
         if (favoritoService.existe(favorito.getUsuarioId(), favorito.getExternalId(), favorito.getTipo())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build(); // Ya existe
         }
