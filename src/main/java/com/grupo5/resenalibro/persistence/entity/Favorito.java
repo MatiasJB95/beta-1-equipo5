@@ -1,9 +1,6 @@
 package com.grupo5.resenalibro.persistence.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -22,9 +19,29 @@ public class Favorito {
     private String externalId;
 
     @NotBlank
-    private String tipo; // "B" o "M"
-
+    private String tipo;
     private LocalDateTime fechaAgregado = LocalDateTime.now();
+    @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = true)
+    private String image;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Long getId() {
         return id;
