@@ -51,4 +51,7 @@ public class ResenaService {
     public List<Resena> findByUsuarioIdAndTipo(Long usuarioId, String tipo) {
         return resenaRepo.findByUsuarioIdAndTipo(usuarioId, tipo);
     }
+    public List<Resena> findByExternalBookId(String externalBookId) {
+        return resenaRepo.findByExternalBookId(externalBookId);
+    }
 }
