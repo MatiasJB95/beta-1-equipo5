@@ -29,7 +29,7 @@ public class ResenaService {
     public List<Resena> getByUsuario(Long usuarioId) {
         return resenaRepo.findByUsuarioId(usuarioId);
     }
-    
+
     public Optional<Resena> findById(Long id) {
         return resenaRepo.findById(id);
     }
