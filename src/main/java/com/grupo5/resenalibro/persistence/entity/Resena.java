@@ -29,9 +29,6 @@ public class Resena {
     @Min(1)
     @Max(5)
     private Integer puntuacion;
-
-    @Column(nullable = false, length = 1)
-    @Pattern(regexp = "[BM]", message = "El tipo debe ser B (Book) o M (Movie)")
     private String tipo;
 
     public String getTipo() {
