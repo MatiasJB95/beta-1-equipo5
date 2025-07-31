@@ -13,4 +13,5 @@ public interface resenaRepository extends JpaRepository<Resena, Long> {
 
     Optional<Resena> findById(Long id);
     List<Resena> findByUsuarioIdAndTipo(Long usuarioId, String tipo);
+
 }
